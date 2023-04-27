@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<webMethodsTestSuite description="" name="EmployeeTest">
+    <webMethodsTestCase name="Get Employee">
+        <service folder="Employees.services" name="getEmployee">
+            <input>
+                <file/>
+            </input>
+            <expected>
+                <file filename="resources/test/xml/data/GetEmployees.xml"/>
+            </expected>
+        </service>
+    </webMethodsTestCase>
+    <webMethodsTestCase name="Get Employee By id">
+        <service folder="Employees.services" name="getEmployee">
+            <input>
+                <file filename="resources/test/xml/data/GetEmployeeByIdInput.xml"/>
+            </input>
+            <expected>
+                <file filename="resources/test/xml/data/GetEmployeeByIdOutput.xml"/>
+            </expected>
+        </service>
+    </webMethodsTestCase>
+</webMethodsTestSuite>

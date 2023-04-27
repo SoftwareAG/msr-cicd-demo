@@ -1,0 +1,33 @@
+pipeline {
+    agent any
+	stages {
+	stage('Initialize'){
+            steps {
+                sh 'chmod -R 777 ${WORKSPACE}'
+            }
+        }
+	stage('Copy Packages from Git'){
+		steps{
+		sh '${WORKSPACE}/CopyPackageToVM.sh'
+	    }
+	}
+	stage('Create Customer docker files'){
+            steps {
+                sh "${MSR_TARGET_DOCKER}/is_container.sh createPackageDockerfile -Dimage.name=is:msr -Dpackage.list=Customers -Dfile.name=CustomerMSR"
+		echo "Customers package docker file created"
+            }
+        }
+	stage('Build Customer Image'){
+            steps{
+                sh "${MSR_TARGET_DOCKER}/is_container.sh buildPackage -Dimage.name=is:${CustomerTag} -Dfile.name=CustomerMSR"
+		echo "Customers MSR image built successfully"
+            }
+        }
+	stage('Push Customer image to docker registry'){
+            steps {
+                sh '${MSR_TARGET_DOCKER}/is_container.sh pushImage -Duser=${DockerRegistryUser} -Dpassword=${DockerRegistryPassword} -Dserver=${DockerRegistryUrl} -Drepository.name=${DockerRepositoryName} -Dimage.name=is:${CustomerTag}'
+		echo "Uploaded Customers MSR image built successfully"
+            	}
+        	}
+	}
+}

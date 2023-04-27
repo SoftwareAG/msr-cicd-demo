@@ -1,0 +1,39 @@
+pipeline {
+    agent any
+    stages {
+    	stage('Initialize'){
+            steps {
+                sh 'chmod -R 777 ${WORKSPACE}'
+            }
+        }
+	stage('Create Template'){
+            steps {
+                sh ("""
+		sed -i 's/DOCKERREPO/'"$DOCKERREPO"'/g'  ${WORKSPACE}/PushCustomerImageToK8.yaml
+		""")
+		sh ("""
+		sed -i 's/IMAGETAG/'"$IMAGETAG"'/g'  ${WORKSPACE}/PushCustomerImageToK8.yaml
+		""")
+		sh ("""
+		sed -i 's/APPNAME/'"$APPNAME"'/g'  ${WORKSPACE}/PushCustomerImageToK8.yaml
+		""")
+		sh ("""
+		sed -i 's/SERVICENAME/'"$SERVICENAME"'/g'  ${WORKSPACE}/PushCustomerImageToK8.yaml
+		""")
+		sh ("""
+		sed -i 's/ENDPOINT/'"$ENDPOINT"'/g'  ${WORKSPACE}/PushCustomerImageToK8.yaml
+		""")
+		sh ("""
+		sed -i 's/DEPLOYMENTNAME/'"$DEPLOYMENTNAME"'/g'  ${WORKSPACE}/PushCustomerImageToK8.yaml
+		""")
+            }
+        }
+	
+	
+	stage('Push Customer image To K8'){
+		steps{
+		sh 'yes 1 | ${WORKSPACE}/DeployCustomerImageToK8.sh'
+	    }
+	}
+    }
+} 

@@ -1,0 +1,62 @@
+
+apiVersion: apps/v1 # for versions before 1.8.0 use apps/v1beta1
+
+kind: Deployment
+metadata:
+  name: DEPLOYMENTNAME
+  namespace: presales-default
+  labels:
+   app: APPNAME
+spec:
+  replicas: 1 # tells deployment to run 1 pod matching the template
+  selector:
+    matchLabels:
+      app: APPNAME
+  template: # create pods using pod definition in this template
+    metadata:
+        labels:
+          app: APPNAME
+    spec:
+      containers:
+      - name: customer-ismicroservicesruntime
+        image: DOCKERREPO/IMAGETAG
+        imagePullPolicy: IfNotPresent        
+        ports:
+        - containerPort: 5555
+      imagePullSecrets:
+        - name: acctest
+---
+kind: Service
+apiVersion: v1	
+metadata:
+  name: SERVICENAME
+  namespace: presales-default
+spec:
+  type: ClusterIP
+  selector:
+    app: APPNAME
+  ports:
+  - protocol: TCP
+    port: 5555
+    targetPort: 5555
+---
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: SERVICENAME
+  namespace: presales-default
+spec:	
+  rules:
+  - host: ENDPOINT.daeipresal51397.eur.ad.sag
+    http:
+      paths:
+      - backend:
+          serviceName: SERVICENAME
+          servicePort: 5555
+        path: /
+  tls:
+  - hosts:
+    - ENDPOINT.daeipresal51397.eur.ad.sag
+    secretName: daeipresal51397
+ 
+

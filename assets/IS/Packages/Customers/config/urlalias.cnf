@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Values version="2.0">
+  <record name="customers" javaclass="com.wm.util.Values">
+    <value name="urlPath">rad/Customers.apis:CustomerApiDescriptor/customers</value>
+    <record name="portMap" javaclass="com.wm.util.Values">
+    </record>
+  </record>
+  <record name="customerid" javaclass="com.wm.util.Values">
+    <value name="urlPath">rad/Customers.apis:CustomerApiDescriptor/customer</value>
+    <record name="portMap" javaclass="com.wm.util.Values">
+    </record>
+  </record>
+</Values>

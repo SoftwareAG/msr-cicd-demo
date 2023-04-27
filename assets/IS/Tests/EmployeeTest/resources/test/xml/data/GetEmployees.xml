@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<IDataXMLCoder version="1.0">
+  <record javaclass="com.wm.util.Values">
+    <record name="employees" javaclass="com.wm.data.ISMemDataImpl">
+      <array name="employees" type="record" depth="1">
+        <record javaclass="com.wm.util.Values">
+          <value name="firstname">John</value>
+          <value name="lastname">Doe</value>
+          <value name="id">1</value>
+          <record name="contact" javaclass="com.wm.util.Values">
+            <value name="phone">526-852-9632</value>
+            <value name="email">john.doe@acme.com</value>
+          </record>
+          <record name="address" javaclass="com.wm.util.Values">
+            <value name="line1">123 Main st</value>
+            <value name="city">Reston</value>
+            <value name="state">VA</value>
+          </record>
+        </record>
+        <record javaclass="com.wm.util.Values">
+          <value name="firstname">Jane</value>
+          <value name="lastname">Doe</value>
+          <value name="id">2</value>
+          <record name="contact" javaclass="com.wm.util.Values">
+            <value name="phone">741-852-3691</value>
+            <value name="email">jane.doe@acme.com</value>
+          </record>
+          <record name="address" javaclass="com.wm.util.Values">
+            <value name="line1">987 State st</value>
+            <value name="city">Herndon</value>
+            <value name="state">VA</value>
+          </record>
+        </record>
+      </array>
+    </record>
+  </record>
+</IDataXMLCoder>
