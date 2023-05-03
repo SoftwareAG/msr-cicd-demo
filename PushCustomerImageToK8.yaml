@@ -20,7 +20,7 @@ spec:
       containers:
       - name: customer-ismicroservicesruntime
         image: DOCKERREPO/IMAGETAG
-        imagePullPolicy: IfNotPresent        
+        imagePullPolicy: Always        
         ports:
         - containerPort: 5555
       imagePullSecrets:
