@@ -1,0 +1,26 @@
+pipeline {
+    agent any
+	stages {
+	stage('Initialize'){
+            steps {
+                sh 'chmod -R 777 ${WORKSPACE}'
+            }
+        }
+	stage('Login to container.softwareag.com'){
+		steps{
+		sh 'docker login -u $username -p $password sagcr.azurecr.io'
+	    }
+	}
+	stage('Pull base MSR image'){
+            steps {
+                sh "docker pull sagcr.azurecr.io/webmethods-microservicesruntime:10.15"
+		echo "Downloaded latest image"
+            }
+        }
+	stage('Starting MSR'){
+            steps{
+                sh "docker run -dp 5555:5555 sagcr.azurecr.io/webmethods-microservicesruntime:10.15"
+            }
+        }
+	}
+}
