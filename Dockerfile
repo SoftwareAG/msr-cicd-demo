@@ -1,2 +1,2 @@
 FROM sagcr.azurecr.io/webmethods-microservicesruntime:10.15
-COPY ../../../jenkins/workspace/CreateCustomerMSRImage/assets/IS/Packages/Customers/ /opt/softwareag/IntegrationServer/packages/
+COPY --chown=1724:1724 ../../../jenkins/workspace/CreateCustomerMSRImage/assets/IS/Packages/Customers/ /opt/softwareag/IntegrationServer/packages/
