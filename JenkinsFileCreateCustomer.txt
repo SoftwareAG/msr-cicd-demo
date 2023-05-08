@@ -9,7 +9,7 @@ pipeline {
 	stage('Build Customer image'){
 		steps{
     sh "cd /var/lib/jenkins/workspace/CreateCustomerMSRImage"
-		sh "docker build -t 'msr:Customer'"
+		sh "docker build -t CustomerMSR"
     echo "Customers image created"
 	    }
 	}
