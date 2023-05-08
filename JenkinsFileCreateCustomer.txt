@@ -1,0 +1,22 @@
+pipeline {
+    agent any
+	stages {
+	stage('Initialize'){
+            steps {
+                sh 'chmod -R 777 ${WORKSPACE}'
+            }
+        }
+	stage('Build Customer image'){
+		steps{
+    sh "cd /var/lib/jenkins/workspace/CreateCustomerMSRImage"
+		sh "docker build -t msr:Customer"
+    echo "Customers image created"
+	    }
+	}
+	stage('Starting MSR with Customer image'){
+            steps {
+                sh "docker run -dp 5555:5555 msr:Customer"
+            }
+        }
+	}
+}
