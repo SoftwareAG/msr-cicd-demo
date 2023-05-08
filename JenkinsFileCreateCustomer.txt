@@ -15,7 +15,7 @@ pipeline {
 	}
 	stage('Starting MSR with Customer image'){
             steps {
-                sh "docker run -dp 5555:5555 msr:Customer"
+                sh "docker run -dp 5555:5555 msr:customer"
             }
         }
 	}
