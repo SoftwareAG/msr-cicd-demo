@@ -17,10 +17,5 @@ pipeline {
 		echo "Downloaded latest image"
             }
         }
-	stage('Starting MSR'){
-            steps{
-                sh "docker run -dp 5555:5555 sagcr.azurecr.io/webmethods-microservicesruntime:10.15"
-            }
-        }
 	}
 }
