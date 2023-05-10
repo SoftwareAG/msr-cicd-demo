@@ -1,0 +1,16 @@
+pipeline {
+    agent any
+	stages {
+	stage('Initialize'){
+            steps {
+                sh 'chmod -R 777 ${WORKSPACE}'
+            }
+        }
+	stage('Push Customer image to docker registry'){
+            steps {
+                sh '${WORKSPACE}/DockerLoginAndPush.sh'
+		echo "Uploaded Customers MSR image built successfully"
+            	}
+        	}
+	}
+}
