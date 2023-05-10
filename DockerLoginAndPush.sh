@@ -1,3 +1,3 @@
 docker login -u $username -p $password
-docker tag msr:$customerTag $username/msr:$customerTag
-docker push $username/msr:$customerTag
+docker tag $REPONAME$customerTag $username/$REPONAME$customerTag
+docker push $username/$REPONAME$customerTag
