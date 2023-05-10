@@ -9,10 +9,10 @@ pipeline {
 	stage('Create Template'){
             steps {
                 sh ("""
-		sed -i 's/DOCKERREPO/'"$DOCKERREPO"'/g'  ${WORKSPACE}/PushCustomerImageToK8.yaml
+		sed -i 's/USERNAME/'"$DOCKERREPO"'/g'  ${WORKSPACE}/PushCustomerImageToK8.yaml
 		""")
 		sh ("""
-		sed -i 's/IMAGETAG/'"$IMAGETAG"'/g'  ${WORKSPACE}/PushCustomerImageToK8.yaml
+		sed -i 's/CUSTOMERTAG/'"$IMAGETAG"'/g'  ${WORKSPACE}/PushCustomerImageToK8.yaml
 		""")
 		sh ("""
 		sed -i 's/APPNAME/'"$APPNAME"'/g'  ${WORKSPACE}/PushCustomerImageToK8.yaml
