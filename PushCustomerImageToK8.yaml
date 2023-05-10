@@ -19,7 +19,7 @@ spec:
     spec:
       containers:
       - name: customer-ismicroservicesruntime
-        image: USERNAME/CUSTOMERTAG
+        image: USERNAME/REPONAMECUSTOMERTAG
         imagePullPolicy: Always        
         ports:
         - containerPort: 5555
