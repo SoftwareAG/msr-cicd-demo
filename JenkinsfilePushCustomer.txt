@@ -13,6 +13,7 @@ pipeline {
             steps {
                 sh 'docker login -u $Dockerhub_USR -p $Dockerhub_PSW'
             }
+	    }
 	stage('Push Customer image to docker registry'){
 	    environment {
                 Dockerhub = credentials('Dockerhub')
