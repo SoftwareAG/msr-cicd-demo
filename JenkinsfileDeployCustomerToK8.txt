@@ -12,22 +12,7 @@ pipeline {
 		sed -i 's/USERNAME/'"$USERNAME"'/g'  ${WORKSPACE}/PushCustomerImageToK8.yaml
 		""")
 		sh ("""
-		sed -i 's/REPONAME/'"$REPONAME"'/g'  ${WORKSPACE}/PushCustomerImageToK8.yaml
-		""")
-		sh ("""
 		sed -i 's/CUSTOMERTAG/'"$CUSTOMERTAG"'/g'  ${WORKSPACE}/PushCustomerImageToK8.yaml
-		""")
-		sh ("""
-		sed -i 's/APPNAME/'"$APPNAME"'/g'  ${WORKSPACE}/PushCustomerImageToK8.yaml
-		""")
-		sh ("""
-		sed -i 's/SERVICENAME/'"$SERVICENAME"'/g'  ${WORKSPACE}/PushCustomerImageToK8.yaml
-		""")
-		sh ("""
-		sed -i 's/ENDPOINT/'"$ENDPOINT"'/g'  ${WORKSPACE}/PushCustomerImageToK8.yaml
-		""")
-		sh ("""
-		sed -i 's/DEPLOYMENTNAME/'"$DEPLOYMENTNAME"'/g'  ${WORKSPACE}/PushCustomerImageToK8.yaml
 		""")
             }
         }
