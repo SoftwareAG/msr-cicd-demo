@@ -14,6 +14,9 @@ pipeline {
                 sh 'docker login -u $Dockerhub_USR -p $Dockerhub_PSW'
             }
 	stage('Push Customer image to docker registry'){
+	    environment {
+                Dockerhub = credentials('Dockerhub')
+            }
             steps {
                	sh 'docker tag msr:$customerTag $Dockerhub_USR/msr:$customerTag'
 		sh 'docker push $Dockerhub_USR/msr:$customerTag'
