@@ -7,8 +7,11 @@ pipeline {
             }
         }
 	stage('Login to container.softwareag.com'){
+		environment {
+                	SAGContainer = credentials('SAGContainer')
+            	}
 		steps{
-		sh 'docker login -u $username -p $password sagcr.azurecr.io'
+		sh 'docker login -u $SAGContainer_USR -p $SAGContainer_PSW sagcr.azurecr.io'
 	    }
 	}
 	stage('Pull base MSR image'){
