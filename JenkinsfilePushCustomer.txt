@@ -6,9 +6,17 @@ pipeline {
                 sh 'chmod -R 777 ${WORKSPACE}'
             }
         }
+	stage('Login to Docker registry') {
+            environment {
+                Dockerhub = credentials('Dockerhub')
+            }
+            steps {
+                sh 'docker login -u $Dockerhub_USR -p $Dockerhub_PSW'
+            }
 	stage('Push Customer image to docker registry'){
             steps {
-                sh '${WORKSPACE}/DockerLoginAndPush.sh'
+               	sh 'docker tag msr:$customerTag $Dockerhub_USR/msr:$customerTag'
+		sh 'docker push $Dockerhub_USR/msr:$customerTag'
 		echo "Uploaded Customers MSR image built successfully"
             	}
         	}
