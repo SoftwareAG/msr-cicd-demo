@@ -19,9 +19,9 @@ pipeline {
                 Dockerhub = credentials('Dockerhub')
             }
             steps {
-               	sh 'docker tag msr:$customerTag $Dockerhub_USR/msr:$customerTag'
-		sh 'docker push $Dockerhub_USR/msr:$customerTag'
-		echo "Uploaded Customers MSR image built successfully"
+               	sh 'docker tag msr:$IMAGE_TAG $Dockerhub_USR/msr:$IMAGE_TAG'
+		sh 'docker push $Dockerhub_USR/msr:$IMAGE_TAG'
+		echo "Uploaded Custome MSR image built successfully"
             	}
         	}
 	}
