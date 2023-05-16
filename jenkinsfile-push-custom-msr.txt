@@ -21,7 +21,7 @@ pipeline {
             steps {
                	sh 'docker tag msr:$IMAGE_TAG $Dockerhub_USR/msr:$IMAGE_TAG'
 		sh 'docker push $Dockerhub_USR/msr:$IMAGE_TAG'
-		echo "Uploaded Custome MSR image built successfully"
+		echo "Uploaded Custom MSR image built successfully"
             	}
         	}
 	}
