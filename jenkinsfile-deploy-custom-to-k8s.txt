@@ -14,6 +14,9 @@ pipeline {
 		sh ("""
 		sed -i 's/IMAGE_TAG/'"$IMAGE_TAG"'/g'  ${WORKSPACE}/PushCustomerImageToK8.yaml
 		""")
+		sh ("""
+		sed -i 's/K8S_VM_HOSTNAME/'"$K8S_VM_HOSTNAME"'/g'  ${WORKSPACE}/PushCustomerImageToK8.yaml
+		""")
             }
         }
 	
