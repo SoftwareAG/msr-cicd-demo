@@ -47,7 +47,7 @@ metadata:
   namespace: presales-default
 spec:	
   rules:
-  - host: msr-customer.daeipresal51397.eur.ad.sag
+  - host: msr-customer.K8S_VM_HOSTNAME.eur.ad.sag
     http:
       paths:
       - backend:
@@ -56,7 +56,7 @@ spec:
         path: /
   tls:
   - hosts:
-    - msr-customer.daeipresal51397.eur.ad.sag
-    secretName: daeipresal51397
+    - msr-customer.K8S_VM_HOSTNAME.eur.ad.sag
+    secretName: K8S_VM_HOSTNAME
  
 
