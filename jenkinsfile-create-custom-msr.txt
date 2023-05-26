@@ -8,7 +8,7 @@ pipeline {
         }
 	stage('Build Customer image'){
 		steps{
-    		sh "cd ${WORKSPACE}/Create_Customer_MSR_Image"
+    		sh "cd ${WORKSPACE}"
 		sh "docker build -t msr:customer$BUILD_NUMBER ."
 		echo "Custom image created"
 	    }
