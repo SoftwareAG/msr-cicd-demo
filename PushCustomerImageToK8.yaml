@@ -54,9 +54,5 @@ spec:
           serviceName: msr-customer-service
           servicePort: 5555
         path: /
-  tls:
-  - hosts:
-    - msr-customer.K8S_VM_HOSTNAME.eur.ad.sag
-    secretName: K8S_VM_HOSTNAME
  
 
