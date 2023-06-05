@@ -4,7 +4,7 @@ apiVersion: apps/v1 # for versions before 1.8.0 use apps/v1beta1
 kind: Deployment
 metadata:
   name: msr-customer-deployment
-  namespace: presales-default
+  namespace: default
   labels:
    app: msr-customer-app
 spec:
@@ -30,7 +30,7 @@ kind: Service
 apiVersion: v1	
 metadata:
   name: msr-customer-service
-  namespace: presales-default
+  namespace: default
 spec:
   type: ClusterIP
   selector:
@@ -44,7 +44,7 @@ apiVersion: extensions/v1beta1
 kind: Ingress
 metadata:
   name: msr-customer-service
-  namespace: presales-default
+  namespace: default
 spec:	
   rules:
   - host: msr-customer.K8S_VM_HOSTNAME.eur.ad.sag
