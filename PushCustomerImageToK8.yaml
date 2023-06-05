@@ -37,7 +37,7 @@ spec:
     app: msr-customer-app
   ports:
   - protocol: TCP
-    port: 5555
+    port: 80
     targetPort: 5555
 ---
 apiVersion: extensions/v1beta1
@@ -47,12 +47,12 @@ metadata:
   namespace: default
 spec:	
   rules:
-  - host: msr-customer.K8S_VM_HOSTNAME.eur.ad.sag
+  - host: K8S_VM_HOSTNAME.eur.ad.sag
     http:
       paths:
       - backend:
           serviceName: msr-customer-service
-          servicePort: 5555
+          servicePort: 80
         path: /
  
 
